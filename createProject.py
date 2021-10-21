@@ -16,6 +16,7 @@ def CreateProjectFiles():
         print("Directory is already exists")    
 
 def openFiles():
+    os.system("code -a "+projectsURL+projectName)
     os.system("code "+projectsURL+projectName+"/index.html")
     os.system("code "+projectsURL+projectName+"/css/style.css")
     os.system("code "+projectsURL+projectName+"/js/script.js")
