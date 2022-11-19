@@ -2,24 +2,20 @@
 import os
 import sys
 projectsURL = "/var/www/html/"
-
+directories = ['css','js','images']
+files = ['/index.html','/css/style.css','/js/script.js']
 def CreateProjectFiles():
     try:
-        os.makedirs(projectsURL+projectName+"/css")
-        os.makedirs(projectsURL+projectName+"/js")
-        os.makedirs(projectsURL+projectName+"/images")
-        open(projectsURL+projectName+"/index.html","x")
-        open(projectsURL+projectName+"/css/style.css","x")
-        open(projectsURL+projectName+"/js/script.js","x")
+        for i in directories:
+            os.makedirs(projectsURL+projectName+'/'+i)
         print("directories created successfully")
     except FileExistsError:
         print("Directory is already exists")    
 
 def openFiles():
     os.system("code -a "+projectsURL+projectName)
-    os.system("code "+projectsURL+projectName+"/index.html")
-    os.system("code "+projectsURL+projectName+"/css/style.css")
-    os.system("code "+projectsURL+projectName+"/js/script.js")
+    for i in files:
+        os.system("code "+projectsURL+projectName+i)
 
 def gitInit():
     os.system("git init "+projectsURL+projectName)        
